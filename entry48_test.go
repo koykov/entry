@@ -14,7 +14,7 @@ func TestEntry48(t *testing.T) {
 		lo, hi = 256, 128
 		x.Encode(lo, hi)
 		if x != 16777344 {
-			t.Errorf("Encode fail: need %d, got %d", 101030516349431, x)
+			t.Errorf("Encode fail: need %d, got %d", 16777344, x)
 		}
 	})
 	t.Run("decode", func(t *testing.T) {
