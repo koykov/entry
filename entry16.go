@@ -1,7 +1,7 @@
 package entry
 
 // Entry16 compacts uint8 lo/hi values.
-type Entry16 uint32
+type Entry16 uint16
 
 // Encode combines lo/hi values into one uint16 int.
 func (e *Entry16) Encode(lo, hi uint8) {
