@@ -3,7 +3,7 @@ package entry
 // Entry64 compacts uint32 lo/hi values.
 type Entry64 uint64
 
-// Encode compacts uint32 lo/hi values.
+// Encode combines lo/hi values into one uint64 int.
 func (e *Entry64) Encode(lo, hi uint32) {
 	*e = Entry64(lo)<<32 | Entry64(hi)
 }
