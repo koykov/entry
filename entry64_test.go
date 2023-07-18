@@ -4,12 +4,8 @@ import "testing"
 
 func TestEntry64(t *testing.T) {
 	t.Run("encode", func(t *testing.T) {
-		var (
-			x      Entry64
-			lo, hi uint32
-		)
-		lo, hi = 23523, 645623
-		x.Encode(lo, hi)
+		lo, hi := uint32(23523), uint32(645623)
+		x := NewEntry64(lo, hi)
 		if x != 101030516349431 {
 			t.Errorf("Encode fail: need %d, got %d", 101030516349431, x)
 		}

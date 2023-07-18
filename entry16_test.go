@@ -4,12 +4,8 @@ import "testing"
 
 func TestEntry16(t *testing.T) {
 	t.Run("encode", func(t *testing.T) {
-		var (
-			x      Entry16
-			lo, hi uint8
-		)
-		lo, hi = 12, 16
-		x.Encode(lo, hi)
+		lo, hi := uint8(12), uint8(16)
+		x := NewEntry16(lo, hi)
 		if x != 3088 {
 			t.Errorf("Encode fail: need %d, got %d", 3088, x)
 		}
