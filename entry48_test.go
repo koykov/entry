@@ -6,13 +6,8 @@ import (
 
 func TestEntry48(t *testing.T) {
 	t.Run("encode", func(t *testing.T) {
-		var (
-			x  Entry48
-			lo uint64
-			hi uint16
-		)
-		lo, hi = 256, 128
-		x.Encode(lo, hi)
+		lo, hi := uint64(256), uint16(128)
+		x := NewEntry48(lo, hi)
 		if x != 16777344 {
 			t.Errorf("Encode fail: need %d, got %d", 16777344, x)
 		}

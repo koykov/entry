@@ -3,6 +3,12 @@ package entry
 // Entry24 compacts uint24 lo and uint8 hi values.
 type Entry24 uint32
 
+func NewEntry24(lo uint32, hi uint8) Entry24 {
+	var e Entry24
+	e.Encode(lo, hi)
+	return e
+}
+
 // Encode combines uint24 lo and uint8 hi values into one uint64 int.
 func (e *Entry24) Encode(lo uint32, hi uint8) {
 	*e = Entry24(lo)<<8 | Entry24(hi)
