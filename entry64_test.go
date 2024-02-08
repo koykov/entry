@@ -16,6 +16,12 @@ func TestEntry64(t *testing.T) {
 			t.Errorf("Decode fail: need %d/%d, got %d/%d", 23523, 645623, lo, hi)
 		}
 	})
+	t.Run("lo_hi", func(t *testing.T) {
+		x := Entry64(101030516349431)
+		if lo, hi := x.Lo(), x.Hi(); lo != 23523 || hi != 645623 {
+			t.Errorf("Decode fail: need %d/%d, got %d/%d", 23523, 645623, lo, hi)
+		}
+	})
 }
 
 func BenchmarkEntry64(b *testing.B) {
