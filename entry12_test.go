@@ -16,6 +16,12 @@ func TestEntry12(t *testing.T) {
 			t.Errorf("Decode fail: need %d/%d, got %d/%d", 128, 8, lo, hi)
 		}
 	})
+	t.Run("lo_hi", func(t *testing.T) {
+		x := Entry12(2056)
+		if lo, hi := x.Lo(), x.Hi(); lo != 128 || hi != 8 {
+			t.Errorf("Decode fail: need %d/%d, got %d/%d", 128, 8, lo, hi)
+		}
+	})
 }
 
 func BenchmarkEntry12(b *testing.B) {

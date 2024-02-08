@@ -15,10 +15,20 @@ func (e *Entry24) Encode(lo uint32, hi uint8) {
 }
 
 // Decode splits e to lo/hi uint16 values.
-func (e Entry24) Decode() (lo uint32, hi uint8) {
-	lo = uint32(e >> 8)
-	hi = uint8(e)
+func (e *Entry24) Decode() (lo uint32, hi uint8) {
+	lo = uint32(*e >> 8)
+	hi = uint8(*e)
 	return
+}
+
+// Lo return low part of entry.
+func (e *Entry24) Lo() uint32 {
+	return uint32(*e >> 8)
+}
+
+// Hi return high part of entry.
+func (e *Entry24) Hi() uint8 {
+	return uint8(*e)
 }
 
 func (e *Entry24) Reset() {
