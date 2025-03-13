@@ -1,5 +1,7 @@
 package entry
 
+import "fmt"
+
 // Entry64 compacts uint32 lo/hi values.
 type Entry64 uint64
 
@@ -34,4 +36,8 @@ func (e *Entry64) Hi() uint32 {
 
 func (e *Entry64) Reset() {
 	*e = 0
+}
+
+func (e *Entry64) DebugString() string {
+	return fmt.Sprintf("%d: lo %d hi %d", *e, e.Lo(), e.Hi())
 }
