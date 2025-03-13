@@ -1,5 +1,7 @@
 package entry
 
+import "fmt"
+
 // Entry12 compacts uint12 lo and uint4 hi values.
 type Entry12 uint16
 
@@ -33,4 +35,8 @@ func (e *Entry12) Hi() uint8 {
 
 func (e *Entry12) Reset() {
 	*e = 0
+}
+
+func (e *Entry12) DebugString() string {
+	return fmt.Sprintf("%d: lo %d hi %d", *e, e.Lo(), e.Hi())
 }
